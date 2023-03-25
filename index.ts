@@ -1,5 +1,6 @@
 import express, { Application, Request, Response } from "express";
 import axios from "axios";
+import "dotenv/config";
 
 const app: Application = express();
 const PORT = process.env.PORT;
@@ -11,7 +12,7 @@ app.get("/deck", async (_req: Request, res: Response) => {
   const deckCode = _req.query.code;
 
   const deck = await axios.post(
-    `${process.env.PORT_URL}${deckCode}`,
+    `${process.env.POST_URL}${deckCode}`,
     {},
     {
       headers: {
